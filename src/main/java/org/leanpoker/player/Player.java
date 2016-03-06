@@ -1,5 +1,7 @@
 package org.leanpoker.player;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
 public class Player {
@@ -7,14 +9,19 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement request) {
-        BetRequestDto betRequestDto = new BetRequestDto();
+        try {
+            System.out.println(request);
+            Gson gson = new GsonBuilder().registerTypeAdapter(Rank.class, new RankAdapter()).create();
+            BetRequestDto betRequestDto = gson.fromJson(request, BetRequestDto.class);
+            
+            /*if (firstDraw(betRequestDto)) {
+                return handleFirstDraw();
+            }*/
+            return 1000;
 
-
-//        if (firstDraw(betRequestDto)) {
-//            return handleFirstDraw();
-//        }
-
-
+        }catch (Exception exc) {
+            exc.printStackTrace();
+        }
         return 1000;
     }
 
