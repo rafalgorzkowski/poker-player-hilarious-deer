@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
+import java.util.List;
+
 public class Player {
 
     static final String NAME = "Hilarious Deer";
@@ -16,11 +18,11 @@ public class Player {
             Gson gson = new GsonBuilder().registerTypeAdapter(Rank.class, new RankAdapter()).create();
             betRequestDto = gson.fromJson(request, BetRequestDto.class);
 
-//            if (firstDraw()) {
-//                return handleFirstDraw();
-//            }
+            if (firstDraw()) {
+                return handleFirstDraw();
+            }
 
-            return 1000;
+            return 0;
 
         }catch (Exception exc) {
             exc.printStackTrace();
@@ -28,26 +30,35 @@ public class Player {
         return 1000;
     }
 
-    private static boolean firstDraw(BetRequestDto betRequestDto) {
-
+    private static boolean firstDraw() {
         return betRequestDto.getRound() == 0;
     }
 
-//    private static boolean handleFirstDraw() {
-//        if (pairOnHand()) {
-//            return allIn();
-//        }
-//
-//        if (bothCardsSum > 20)//10 10)
-//            betMax1000 return false;
-//
-//
-//        return 1000;
-//    }
+    private static int handleFirstDraw() {
+        if (pairOnHand()) {
+            return allIn();
+        }
+
+        int bothCardsSum = cards().stream().mapToInt(cardDto -> cardDto.getRank().getValue()).sum();
+        if (bothCardsSum > 20) {
+            return allIn();
+        }
+
+        return 0;
+    }
+
+    private static int allIn() {
+        return betRequestDto.getCurrentPlayer().getStack();
+    }
 
     private static boolean pairOnHand() {
-//        return getCurrentPlayer().
-        return false;
+        List<CardDto> hole_cards = cards();
+        Rank firstCardRank = hole_cards.get(0).getRank();
+        return hole_cards.stream().filter(firstCardRank::equals).count() == 2;
+    }
+
+    private static List<CardDto> cards() {
+        return betRequestDto.getCurrentPlayer().getHole_cards();
     }
 
 
