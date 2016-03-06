@@ -12,16 +12,10 @@
 
 package org.leanpoker.player;
 
-import java.lang.annotation.ElementType;
-
 import org.junit.Test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -42,15 +36,6 @@ public class CustomJsonDeserializerTest {
 
         //then
         assertThat(result.rank, is(equalTo(Rank._2)));
-    }
-
-    protected static class RankAdapter implements JsonDeserializer<Rank> {
-        @Override
-        public Rank deserialize(JsonElement json, java.lang.reflect.Type classOfT, JsonDeserializationContext context)
-                throws JsonParseException {
-            String asString = json.getAsString();
-            return asString.matches("\\d+") ? Rank.valueOf("_" + asString) : Rank.valueOf(asString);
-        }
     }
 
     private static class RankTest {
