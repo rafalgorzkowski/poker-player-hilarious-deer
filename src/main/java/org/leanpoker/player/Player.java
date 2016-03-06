@@ -10,15 +10,16 @@ public class Player {
         BetRequestDto betRequestDto = new BetRequestDto();
 
 
-        if (firstDraw(betRequestDto)) {
+//        if (firstDraw(betRequestDto)) {
 //            return handleFirstDraw();
-        }
+//        }
 
 
         return 1000;
     }
 
     private static boolean firstDraw(BetRequestDto betRequestDto) {
+
         return betRequestDto.getRound() == 0;
     }
 
