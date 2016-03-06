@@ -11,17 +11,28 @@ package org.leanpoker.player;/*
  */
 
 public enum Rank {
-    J,
-    Q,
-    K,
-    A,
-    _2,
-    _3,
-    _4,
-    _5,
-    _6,
-    _7,
-    _8,
-    _9,
-    _10
+    J(11),
+    Q(12),
+    K(13),
+    A(14),
+    _2(2),
+    _3(3),
+    _4(4),
+    _5(5),
+    _6(6),
+    _7(7),
+    _8(8),
+    _9(9),
+    _10(10);
+
+
+    private final int value;
+
+    Rank(int value){
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
