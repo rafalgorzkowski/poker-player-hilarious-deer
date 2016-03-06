@@ -103,4 +103,11 @@ public class BetRequestDto {
     public void setCommunity_cards(List<CardDto> community_cards) {
         this.community_cards = community_cards;
     }
+
+    public PlayerDto getCurrentPlayer() {
+        return this.getPlayers().stream()
+                .filter(playerDto -> Player.NAME.equals(playerDto.getName()))
+                .findAny()
+                .orElseThrow(() -> new IllegalStateException("Current player not found"));
+    }
 }

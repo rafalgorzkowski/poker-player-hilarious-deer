@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
+    static final String NAME = "Hilarious Deer";
     static final String VERSION = "Default Java folding player";
     private static BetRequestDto betRequestDto;
 
@@ -49,13 +50,6 @@ public class Player {
         return false;
     }
 
-
-    private static PlayerDto getCurrentPlayer() {
-        return betRequestDto.getPlayers().stream()
-                .filter(playerDto -> playerDto.getName().equals(VERSION))
-                .findAny()
-                .orElseThrow(() -> new IllegalStateException("Current player not found"));
-    }
 
     public static void showdown(JsonElement game) {
     }

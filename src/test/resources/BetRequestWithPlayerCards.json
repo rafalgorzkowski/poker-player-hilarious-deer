@@ -1,0 +1,66 @@
+{
+  "tournament_id": "56bc56e0e85df40003000002",
+  "game_id": "56dc11342569ea0003000085",
+  "round": 0,
+  "players": [
+    {
+      "name": "Pony",
+      "stack": 1000,
+      "status": "folded",
+      "bet": 0,
+      "version": "Fixxxx",
+      "id": 0
+    },
+    {
+      "name": "Funny Chicken",
+      "stack": 943,
+      "status": "active",
+      "bet": 57,
+      "version": "Funny Chicken 5",
+      "id": 1
+    },
+    {
+      "name": "Happy Snake",
+      "stack": 1000,
+      "status": "folded",
+      "bet": 0,
+      "version": "Default Groovy folding player 1.6",
+      "id": 2
+    },
+    {
+      "name": "Hilarious Deer",
+      "stack": 990,
+      "status": "active",
+      "bet": 10,
+      "hole_cards": [
+        {
+          "rank": "2",
+          "suit": "diamonds"
+        },
+        {
+          "rank": "7",
+          "suit": "spades"
+        }
+      ],
+      "version": "Default Java folding player",
+      "id": 3
+    },
+    {
+      "name": "kacJava",
+      "stack": 980,
+      "status": "active",
+      "bet": 20,
+      "version": "KacJava-2",
+      "id": 4
+    }
+  ],
+  "small_blind": 10,
+  "orbits": 0,
+  "dealer": 2,
+  "community_cards": [],
+  "current_buy_in": 57,
+  "pot": 87,
+  "in_action": 3,
+  "minimum_raise": 37,
+  "bet_index": 5
+}
