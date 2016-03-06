@@ -9,7 +9,7 @@ import java.util.List;
 public class Player {
 
     static final String NAME = "Hilarious Deer";
-    static final String VERSION = "Default Java folding player";
+    static final String VERSION = "1.1";
     private static BetRequestDto betRequestDto;
 
     public static int betRequest(JsonElement request) {
