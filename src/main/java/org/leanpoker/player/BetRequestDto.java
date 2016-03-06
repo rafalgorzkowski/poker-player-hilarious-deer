@@ -1,5 +1,7 @@
 package org.leanpoker.player;
 
+import java.util.List;
+
 public class BetRequestDto {
 
     private String tournament_id;
@@ -11,6 +13,8 @@ public class BetRequestDto {
     private Integer dealer;
     private Integer current_buy_in;
     private Integer pot;
+    private List<PlayerDto> players;
+    private List<CardDto> community_cards;
 
     public String getTournament_id() {
         return tournament_id;
@@ -82,5 +86,21 @@ public class BetRequestDto {
 
     public void setPot(Integer pot) {
         this.pot = pot;
+    }
+
+    public List<PlayerDto> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<PlayerDto> players) {
+        this.players = players;
+    }
+
+    public List<CardDto> getCommunity_cards() {
+        return community_cards;
+    }
+
+    public void setCommunity_cards(List<CardDto> community_cards) {
+        this.community_cards = community_cards;
     }
 }
