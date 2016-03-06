@@ -9,7 +9,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PlayerTest {
 
@@ -31,6 +35,6 @@ public class PlayerTest {
         BetRequestDto obj = gson.fromJson(br, BetRequestDto.class);
 
         PlayerDto currentPlayer = obj.getCurrentPlayer();
-        System.out.println(currentPlayer);
+        assertThat(currentPlayer.getName(), is(equalTo(Player.NAME)));
     }
 }

@@ -105,9 +105,11 @@ public class BetRequestDto {
     }
 
     public PlayerDto getCurrentPlayer() {
-        return this.getPlayers().stream()
-                .filter(playerDto -> Player.NAME.equals(playerDto.getName()))
-                .findAny()
-                .orElseThrow(() -> new IllegalStateException("Current player not found"));
+        for (PlayerDto playerDto : this.getPlayers()) {
+            if(Player.NAME.equals(playerDto.getName())) {
+                return playerDto;
+            }
+        }
+        throw new IllegalStateException("Current player not found");
     }
 }
